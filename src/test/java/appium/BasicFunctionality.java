@@ -7,7 +7,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Sleeper;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import java.time.format.TextStyle;
 import java.util.List;
+import java.util.Locale;
 
 
 public class BasicFunctionality extends MainSettings{
@@ -18,53 +28,51 @@ public class BasicFunctionality extends MainSettings{
 		// Some before tests actions
 	}
 	
+//	public void GetMonth(){
+//		DateFormat dateFormat = new SimpleDateFormat("MM");
+//		LocalDate date = LocalDate.now();
+//		String m = dateFormat.format(date),new Locale("pl"));
+//	}
+	
+
     @Test
-    public void MenuOverviewB(){
-    	WebDriverWait wait = new WebDriverWait(driver, 10);
+    public void MenuOverviewButton(){
     	WebElement menuButton = driver.findElement(By.xpath("//android.widget.ImageButton[@content-desc=\"Otwórz lokalizację\"]"));
     	menuButton.click();
-    	wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("listView")));
-    	WebElement overViewButton = driver.findElement(By.xpath(("//*[@text=\"Podgląd\"]")));
-    	overViewButton.click();
-    	wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("overviewGraphContainer")));
-    	menuButton.click();
-    	wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("listView")));
-    	WebElement accountsButton = driver.findElement(By.xpath("//*/android.widget.LinearLayout[2]"));
-    	accountsButton.click();
-    	wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("balanceContainerView")));
-    	menuButton.click();
-    	wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("listView")));
-    	WebElement transactionsButton = driver.findElement(By.xpath("//*/android.widget.LinearLayout[3]"));
-    	transactionsButton.click();
-    	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@text=\"Transakcje\"]")));
-    	menuButton.click();
-    	wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("listView")));
-    	WebElement reportsButton = driver.findElement(By.xpath("//*/android.widget.LinearLayout[3]"));
-    	reportsButton.click();
-    	
+    	WaitFor("//*/android.widget.ListView");    	
     }
     
-//    @Test
-//    public void OpenOverView(){
-//    	WebDriverWait wait = new WebDriverWait(driver, 10);
-//    	WebElement menuButton = driver.findElement(By.xpath("//android.widget.ImageButton[@content-desc=\"Otwórz lokalizację\"]"));
-//    	WebElement overViewButton = driver.findElement(By.xpath(("//*[@text=\"Podgląd\"]")));
-//    	menuButton.click();
-//    	wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("listView")));
-//    	overViewButton.click();
-//    	wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("overviewGraphContainer")));
-//    }
-//    @Test
-//    public void OverViewAccounts() {
-//    	WebDriverWait wait = new WebDriverWait(driver, 10);
-//    	WebElement menuButton = driver.findElement(By.xpath("//android.widget.ImageButton[@content-desc=\"Otwórz lokalizację\"]"));
-//    	WebElement accountsButton = driver.findElement(By.xpath("//*[@text=\"Konta\"]"));
-//    	menuButton.click();   
-//    	wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("listView")));
-//    	accountsButton.click();
-//    	wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("balanceContainerView")));
-//    	
-//    }   
+    @Test
+    public void OpenOverview(){
+    	MenuOverviewButton();
+    	WebElement overViewButton = driver.findElement(By.xpath(("//*[@text=\"Podgląd\"]")));
+	    overViewButton.click();
+	    //temporary until I won't find out the solution
+	    WaitFor("//*[@text=\"październik\"]");
+    }
+    
+    @Test
+    public void OpenAccountsView() {
+    	MenuOverviewButton();
+    	WebElement accountsButton = driver.findElement(By.xpath("//*[@text=\"Konta\"]"));
+    	accountsButton.click(); 
+    	WaitFor("//*[@text=\"Konta\"]");
+    }   
+    
+    @Test
+    public void OpenTransactionsView(){
+    	MenuOverviewButton();
+    	WebElement transactionsButton = driver.findElement(By.xpath("//*[@text=\"Transakcje\"]"));
+    	transactionsButton.click();
+    	WaitFor("//*[@text=\"Transakcje\"]");
+    }
+    
+    @Test
+    public void OpenReportsView(){
+    	MenuOverviewButton();
+    	WebElement reportsButton = driver.findElement(By.xpath("//*[@text=\"Zestawienia\"]"));
+    	reportsButton.click();
+    }
 
         
 
