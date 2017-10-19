@@ -16,6 +16,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.net.URL;
+import java.nio.charset.Charset;
+import java.util.Random;
 
 public class MainSettings {
     public AppiumDriver<WebElement> driver;
@@ -51,6 +53,14 @@ public class MainSettings {
 		WebDriverWait wait = new WebDriverWait(driver, 5);
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(element)));
     }
+    
+    public String GenerateRandomString(int lenght){
+		byte[] stringArray = new byte[lenght];
+	    new Random().nextBytes(stringArray);
+	    String generatedString = new String(stringArray, Charset.forName("UTF-8"));
+	    
+		return generatedString;	
+	}
 
 
 //    public MobileElement scrollTo(String text){
