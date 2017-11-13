@@ -45,8 +45,7 @@ public class MainSettings {
     public void tearDown() throws Exception {
         if (driver != null) {
             driver.quit();
-        }
-        
+        }      
     }
     
     public void WaitFor(String element){
@@ -57,8 +56,7 @@ public class MainSettings {
     public String GenerateRandomString(int lenght){
 		byte[] stringArray = new byte[lenght];
 	    new Random().nextBytes(stringArray);
-	    String generatedString = new String(stringArray, Charset.forName("UTF-8"));
-	    
+	    String generatedString = new String(stringArray, Charset.forName("UTF-8"));    
 		return generatedString;	
 	}
 

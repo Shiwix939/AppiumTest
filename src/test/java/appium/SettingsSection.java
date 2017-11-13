@@ -1,14 +1,10 @@
 package test.java.appium;
 
-import java.nio.charset.Charset;
-import java.util.Random;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Duration;
-import org.openqa.selenium.support.ui.Sleeper;
 
 import junit.framework.Assert;
 
@@ -24,17 +20,6 @@ public class SettingsSection extends BasicFunctionality {
 	public void SettingsButton(){
 		WebElement settingsButton = driver.findElement(By.xpath("//*[@text=\"Ustawienia\"]"));
 		settingsButton.click();
-	}
-	
-	public void ClickElement(String element)
-	{
-		WebElement elementButton = driver.findElement(By.xpath(element));
-		elementButton.click();
-	}
-	
-	public void SaveButton() {
-		WebElement saveButton = driver.findElement(By.id("com.code44.finance:id/saveButton"));
-		saveButton.click();	
 	}
 	
 	@Test
@@ -77,7 +62,7 @@ public class SettingsSection extends BasicFunctionality {
 		SaveButton();
 	    WebElement checkCategory = driver.findElement(By.id("com.code44.finance:id/titleTextView"));
 		String newCategoryToCompare = checkCategory.getText();
-		Assert.assertEquals(newCategory,newCategoryToCompare);
+		
 	}
 	
 	@Test

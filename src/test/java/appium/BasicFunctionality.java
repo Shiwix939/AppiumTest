@@ -33,7 +33,16 @@ public class BasicFunctionality extends MainSettings{
 //		LocalDate date = LocalDate.now();
 //		String m = dateFormat.format(date),new Locale("pl"));
 //	}
+	public void ClickElement(String element)
+	{
+		WebElement elementButton = driver.findElement(By.xpath(element));
+		elementButton.click();
+	}
 	
+	public void SaveButton() {
+		WebElement saveButton = driver.findElement(By.id("com.code44.finance:id/saveButton"));
+		saveButton.click();	
+	}
 
     @Test
     public void MenuOverviewButton(){
@@ -48,15 +57,15 @@ public class BasicFunctionality extends MainSettings{
     	WebElement overViewButton = driver.findElement(By.xpath(("//*[@text=\"Podgląd\"]")));
 	    overViewButton.click();
 	    //temporary until I won't find out the solution
-	    WaitFor("//*[@text=\"październik\"]");
+	    WaitFor("//*[@text=\"listopad\"]");
     }
     
     @Test
     public void OpenAccountsView() {
     	MenuOverviewButton();
-    	WebElement accountsButton = driver.findElement(By.xpath("//*[@text=\"Konta\"]"));
+    	WebElement accountsButton = driver.findElement(By.xpath("//*/android.widget.LinearLayout[2]"));
     	accountsButton.click(); 
-    	WaitFor("//*[@text=\"Konta\"]");
+    	WaitFor("//*[@text=\"0.00 zł\"]");
     }   
     
     @Test
