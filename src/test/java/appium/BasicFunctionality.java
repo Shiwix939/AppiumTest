@@ -8,6 +8,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Sleeper;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.appium.java_client.android.AndroidDriver;
+
+import java.net.URL;
 import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -25,7 +28,7 @@ public class BasicFunctionality extends MainSettings{
 
 	@Before
 	public void testCaseSetup()throws Exception {
-		// Some before tests actions
+		
 	}
 	
 //	public void GetMonth(){
@@ -33,16 +36,6 @@ public class BasicFunctionality extends MainSettings{
 //		LocalDate date = LocalDate.now();
 //		String m = dateFormat.format(date),new Locale("pl"));
 //	}
-	public void ClickElement(String element)
-	{
-		WebElement elementButton = driver.findElement(By.xpath(element));
-		elementButton.click();
-	}
-	
-	public void SaveButton() {
-		WebElement saveButton = driver.findElement(By.id("com.code44.finance:id/saveButton"));
-		saveButton.click();	
-	}
 
     @Test
     public void MenuOverviewButton(){

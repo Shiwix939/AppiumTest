@@ -70,6 +70,7 @@ public class SettingsSection extends BasicFunctionality {
 		MenuOverviewButton();
 		SettingsButton();
 		WaitFor("//*[@text=\"Tagi\"]");
+		ClickElement("//*[@text=\"Tagi\"]");
 		WebElement addTagButton = driver.findElement(By.id("com.code44.finance:id/addImageButton"));
 		addTagButton.click();
 		WebElement addTagText = driver.findElement(By.id("com.code44.finance:id/titleEditText"));

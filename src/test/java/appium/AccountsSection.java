@@ -15,31 +15,32 @@ import org.openqa.selenium.support.ui.Wait;
 
 import junit.framework.Assert;
 
-public class AccountsSection extends BasicFunctionality{
-	
+public class AccountsSection extends MainSettings{
+	String nameofAccount2 = GenerateRandomString(5);
+	String nameofAccount1 = GenerateRandomString(5);
 	@Test 
-	public void CreateAccounts(){
-		MenuOverviewButton();
-		OpenAccountsView();
+	public void test_01_CreateAccounts(){
+		ClickElement("//android.widget.ImageButton[@content-desc=\"Otwórz lokalizację\"]");
+		WaitFor("//*/android.widget.ListView"); 
+		ClickElement("//*/android.widget.LinearLayout[2]/android.widget.TextView");
 		WebElement addAccountButton = driver.findElement(By.id("com.code44.finance:id/action_new"));
 		addAccountButton.click();
 		WaitFor("//*[@text=\"Nazwa\"]");
-		String nameofAccount1 = GenerateRandomString(5);
-		String nameofAccount2 = GenerateRandomString(5);
 		WebElement accountNameInput = driver.findElement(By.id("com.code44.finance:id/titleEditText"));
 		accountNameInput.sendKeys(nameofAccount1);
 		SaveButton();
-		WaitFor(nameofAccount1);
+		WaitFor("//*[@text=\""+nameofAccount1+"\"]");
 		addAccountButton.click();
 		accountNameInput.sendKeys(nameofAccount2);
 		WebElement currencyButton = driver.findElement(By.id("com.code44.finance:id/currencyButton"));
+		currencyButton.click();
 		WebElement chooseCurrencyButton = driver.findElement(By.xpath("//*[@text=\"EUR\"]"));
 		chooseCurrencyButton.click();
 		SaveButton();
-		WaitFor(nameofAccount2);
+		WaitFor("//*[@text=\""+nameofAccount2+"\"]");
 	}
 	@Test
-	public void ChangeSettingsOfAccount(){
+	public void test_02_ChangeSettingsOfAccount(){
 		WebElement accountsWidgetClick = driver.findElement(By.id("com.code44.finance:id/accounts"));
 		accountsWidgetClick.click();
 		WebElement accountClick = driver.findElement(By.xpath("//*/android.widget.LinearLayout[1]"));
@@ -51,6 +52,17 @@ public class AccountsSection extends BasicFunctionality{
 		WebElement chooseCurrencyButton = driver.findElement(By.xpath("//*[@text=\"USD\"]"));
 		chooseCurrencyButton.click();
 		SaveButton();
-		WaitFor("//*[@text=\"USD\"]");
+	}
+	
+	@Test
+	public void test_03_DeleteAccounts(){
+		WebElement accountsWidgetClick = driver.findElement(By.id("com.code44.finance:id/accounts"));
+		accountsWidgetClick.click();
+		ClickElement("//*/android.widget.LinearLayout");
+		WaitFor("//*[@text=\"0.00 zł\"]");
+		ClickElement("//android.widget.ImageView[@content-desc=\"Więcej opcji\"]");
+		ClickElement("//*[@text=\"Usuń\"]");
+		WaitFor("/hierarchy/android.widget.FrameLayout");
+		ClickElement("//*/android.widget.Button[2]");
 	}
 }

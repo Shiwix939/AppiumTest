@@ -6,6 +6,8 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServerHasNotBeenStartedLocallyException;
+
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.By;
@@ -34,11 +36,9 @@ public class MainSettings {
 		capabilities.setCapability("app", app.getAbsolutePath());
 		capabilities.setCapability("appPackage", "com.code44.finance"); // package name
 		capabilities.setCapability("appWaitActivity", "com.code44.finance.*"); // default activity
-		
-		capabilities.setCapability("no-reset", "true"); 
-		capabilities.setCapability("full-reset", "false"); 
+		capabilities.setCapability("noReset", "true"); 
+		capabilities.setCapability("fullReset", "false"); 
         driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-    
     }
 
     @After
@@ -54,12 +54,20 @@ public class MainSettings {
     }
     
     public String GenerateRandomString(int lenght){
-		byte[] stringArray = new byte[lenght];
-	    new Random().nextBytes(stringArray);
-	    String generatedString = new String(stringArray, Charset.forName("UTF-8"));    
-		return generatedString;	
+    	String randomString = RandomStringUtils.randomAlphanumeric(lenght).toUpperCase();
+    	return randomString;
 	}
-
+    
+	public void ClickElement(String element)
+	{
+		WebElement elementButton = driver.findElement(By.xpath(element));
+		elementButton.click();
+	}
+	
+	public void SaveButton() {
+		WebElement saveButton = driver.findElement(By.id("com.code44.finance:id/saveButton"));
+		saveButton.click();	
+	}
 
 //    public MobileElement scrollTo(String text){
 //        return (MobileElement) driver.findElement(MobileBy.
