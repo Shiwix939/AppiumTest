@@ -1,5 +1,6 @@
 package test.java.appium;
 
+import java.awt.Dimension;
 import java.awt.MenuBar;
 
 import javax.naming.directory.DirContext;
@@ -16,8 +17,9 @@ import org.openqa.selenium.support.ui.Wait;
 import junit.framework.Assert;
 
 public class AccountsSection extends MainSettings{
-	String nameofAccount2 = GenerateRandomString(5);
 	String nameofAccount1 = GenerateRandomString(5);
+	String nameofAccount2 = GenerateRandomString(5);
+	
 	@Test 
 	public void test_01_CreateAccounts(){
 		ClickElement("//android.widget.ImageButton[@content-desc=\"Otwórz lokalizację\"]");
@@ -58,11 +60,16 @@ public class AccountsSection extends MainSettings{
 	public void test_03_DeleteAccounts(){
 		WebElement accountsWidgetClick = driver.findElement(By.id("com.code44.finance:id/accounts"));
 		accountsWidgetClick.click();
-		ClickElement("//*/android.widget.LinearLayout");
-		WaitFor("//*[@text=\"0.00 zł\"]");
-		ClickElement("//android.widget.ImageView[@content-desc=\"Więcej opcji\"]");
-		ClickElement("//*[@text=\"Usuń\"]");
-		WaitFor("/hierarchy/android.widget.FrameLayout");
-		ClickElement("//*/android.widget.Button[2]");
+		for(int i=0;i<2; i++){
+			WebElement account1Get = driver.findElement(By.id("com.code44.finance:id/titleTextView"));
+			String accountName1 = account1Get.getText();
+			ClickElement("//*[@text=\""+accountName1+"\"]");
+			WaitFor("//*[@text=\"0.00 zł\"]");
+			ClickElement("//android.widget.ImageView[@content-desc=\"Więcej opcji\"]");
+			ClickElement("//*[@text=\"Usuń\"]");
+			WaitFor("/hierarchy/android.widget.FrameLayout");
+			ClickElement("//*/android.widget.Button[2]");		
+		}
+
 	}
 }

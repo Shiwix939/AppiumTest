@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 
 import junit.framework.Assert;
 
-public class SettingsSection extends BasicFunctionality {
+public class SettingsSection extends MainSettings {
 	
 	@Before
 	public void testCaseSetup()throws Exception {

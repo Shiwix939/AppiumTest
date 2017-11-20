@@ -68,6 +68,12 @@ public class MainSettings {
 		WebElement saveButton = driver.findElement(By.id("com.code44.finance:id/saveButton"));
 		saveButton.click();	
 	}
+	
+    public void MenuOverviewButton(){
+    	WebElement menuButton = driver.findElement(By.xpath("//android.widget.ImageButton[@content-desc=\"Otwórz lokalizację\"]"));
+    	menuButton.click();
+    	WaitFor("//*/android.widget.ListView");    	
+    }
 
 //    public MobileElement scrollTo(String text){
 //        return (MobileElement) driver.findElement(MobileBy.
