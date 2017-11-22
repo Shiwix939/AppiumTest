@@ -1,3 +1,5 @@
+//TODO make each test strongly independent!
+//change for loop to foreach(if possible) 
 package test.java.appium;
 
 import java.awt.Dimension;

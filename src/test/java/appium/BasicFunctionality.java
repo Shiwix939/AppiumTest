@@ -31,12 +31,6 @@ public class BasicFunctionality extends MainSettings{
 		
 	}
 	
-//	public void GetMonth(){
-//		DateFormat dateFormat = new SimpleDateFormat("MM");
-//		LocalDate date = LocalDate.now();
-//		String m = dateFormat.format(date),new Locale("pl"));
-//	}
-
     @Test
     public void MenuOverviewButton(){
     	WebElement menuButton = driver.findElement(By.xpath("//android.widget.ImageButton[@content-desc=\"Otwórz lokalizację\"]"));
