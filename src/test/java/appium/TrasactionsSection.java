@@ -5,11 +5,14 @@ import org.junit.runners.MethodSorters;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import junit.framework.Assert;
-import org.junit.FixMethodOrder;
-import org.junit.Test;
 
+import org.junit.After;
+import org.junit.FixMethodOrder;
+
+@SuppressWarnings("deprecation")
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
 public class TrasactionsSection extends MainSettings {
@@ -99,3 +102,4 @@ public class TrasactionsSection extends MainSettings {
 		}
 	}
 }
+

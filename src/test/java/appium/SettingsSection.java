@@ -1,21 +1,21 @@
 package test.java.appium;
 
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import junit.framework.Assert;
 
+@SuppressWarnings("deprecation")
 public class SettingsSection extends MainSettings {
 	
 	@Before
 	public void testCaseSetup()throws Exception {
 	}
-	
-	
-	@SuppressWarnings("deprecation")
 	
 	public void SettingsButton(){
 		WebElement settingsButton = driver.findElement(By.xpath("//*[@text=\"Ustawienia\"]"));
@@ -51,8 +51,8 @@ public class SettingsSection extends MainSettings {
 		SettingsButton();
 		WaitFor("//*[@text=\"Kategorie\"]");
 		ClickElement("//*[@text=\"Kategorie\"]");
-		WaitFor("//*[@text=\"Jedzenie\"]");
-		ClickElement("//*[@text=\"Jedzenie\"]");
+		WaitFor("//*[@text=\"Wypoczynek\"]");
+		ClickElement("//*/android.widget.LinearLayout[1]");
 		WebElement editButton = driver.findElement(By.id("com.code44.finance:id/action_edit"));
 		editButton.click();
 		WebElement editCategory = driver.findElement(By.id("com.code44.finance:id/titleEditText"));
@@ -62,6 +62,7 @@ public class SettingsSection extends MainSettings {
 		SaveButton();
 	    WebElement checkCategory = driver.findElement(By.id("com.code44.finance:id/titleTextView"));
 		String newCategoryToCompare = checkCategory.getText();
+		Assert.assertEquals(newCategory, newCategoryToCompare);
 		
 	}
 	
@@ -71,14 +72,14 @@ public class SettingsSection extends MainSettings {
 		SettingsButton();
 		WaitFor("//*[@text=\"Tagi\"]");
 		ClickElement("//*[@text=\"Tagi\"]");
-		WebElement addTagButton = driver.findElement(By.id("com.code44.finance:id/addImageButton"));
+		WebElement addTagButton = driver.findElement(By.id("com.code44.finance:id/action_new"));
 		addTagButton.click();
 		WebElement addTagText = driver.findElement(By.id("com.code44.finance:id/titleEditText"));
 		addTagText.click();
 		String randomTagName = GenerateRandomString(5);
 		addTagText.sendKeys(randomTagName);	
 		SaveButton();
-		WebElement titleTextView = driver.findElement(By.id("com.code44.finance:id/titleTextView"));
+		WebElement titleTextView = driver.findElement(By.xpath("//*[@text=\""+randomTagName+"\"]"));
 		String checkTagTitle = titleTextView.getText();
 		Assert.assertEquals(randomTagName, checkTagTitle);	
 	}
@@ -119,5 +120,9 @@ public class SettingsSection extends MainSettings {
 		ClickElement("//*[@text=\"O aplikacji\"]");
 		
 	}
-
+	
+	@After
+	public void AfterTests(){
+		driver.resetApp();
+	}
 }

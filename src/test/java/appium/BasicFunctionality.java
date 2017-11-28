@@ -8,20 +8,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Sleeper;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import io.appium.java_client.android.AndroidDriver;
-
-import java.net.URL;
-import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.Month;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
-import java.time.format.TextStyle;
-import java.util.List;
-import java.util.Locale;
-
 
 public class BasicFunctionality extends MainSettings{
 	
@@ -44,7 +30,7 @@ public class BasicFunctionality extends MainSettings{
     	WebElement overViewButton = driver.findElement(By.xpath(("//*[@text=\"Podgląd\"]")));
 	    overViewButton.click();
 	    //temporary until I won't find out the solution
-	    WaitFor("//*[@text=\"listopad\"]");
+	    WaitFor("//*[@text=\"Trendy\"]");
     }
     
     @Test

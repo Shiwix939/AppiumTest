@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="AppiumTests" project="AppiumTests" tests="19" started="19" failures="0" errors="0" ignored="0">
+  <testsuite name="test.java.appium.BasicFunctionality" time="88.428">
+    <testcase name="OpenTransactionsView" classname="test.java.appium.BasicFunctionality" time="21.93"/>
+    <testcase name="OpenOverview" classname="test.java.appium.BasicFunctionality" time="17.19"/>
+    <testcase name="OpenAccountsView" classname="test.java.appium.BasicFunctionality" time="17.104"/>
+    <testcase name="OpenReportsView" classname="test.java.appium.BasicFunctionality" time="16.231"/>
+    <testcase name="MenuOverviewButton" classname="test.java.appium.BasicFunctionality" time="15.973"/>
+  </testsuite>
+  <testsuite name="test.java.appium.SettingsSection" time="152.379">
+    <testcase name="ChangeCurrencies" classname="test.java.appium.SettingsSection" time="22.367"/>
+    <testcase name="OpenSecurity" classname="test.java.appium.SettingsSection" time="17.201"/>
+    <testcase name="ChangeTags" classname="test.java.appium.SettingsSection" time="29.169"/>
+    <testcase name="ChangePeriod" classname="test.java.appium.SettingsSection" time="18.161"/>
+    <testcase name="OpenAboutMe" classname="test.java.appium.SettingsSection" time="17.156"/>
+    <testcase name="ChangeCategories" classname="test.java.appium.SettingsSection" time="31.011"/>
+    <testcase name="OpenYourData" classname="test.java.appium.SettingsSection" time="17.313"/>
+  </testsuite>
+  <testsuite name="test.java.appium.AccountsSection" time="77.134">
+    <testcase name="test_01_CreateAccounts" classname="test.java.appium.AccountsSection" time="34.05"/>
+    <testcase name="test_02_ChangeSettingsOfAccount" classname="test.java.appium.AccountsSection" time="19.753"/>
+    <testcase name="test_03_DeleteAccounts" classname="test.java.appium.AccountsSection" time="23.331"/>
+  </testsuite>
+  <testsuite name="test.java.appium.TrasactionsSection" time="119.978">
+    <testcase name="test_01_AddAccount" classname="test.java.appium.TrasactionsSection" time="23.91"/>
+    <testcase name="test_02_AddTrasactions" classname="test.java.appium.TrasactionsSection" time="40.407"/>
+    <testcase name="test_03_ChangeTransactions" classname="test.java.appium.TrasactionsSection" time="27.27"/>
+    <testcase name="test_04_DeleteTransactions" classname="test.java.appium.TrasactionsSection" time="28.39"/>
+  </testsuite>
+</testrun>

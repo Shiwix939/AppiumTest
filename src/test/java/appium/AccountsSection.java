@@ -2,21 +2,15 @@
 //change for loop to foreach(if possible) 
 package test.java.appium;
 
-import java.awt.Dimension;
-import java.awt.MenuBar;
+import java.net.URL;
 
-import javax.naming.directory.DirContext;
-
-import org.junit.Before;
+import org.junit.After;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.html5.AddApplicationCache;
-import org.openqa.selenium.support.ui.Duration;
-import org.openqa.selenium.support.ui.Sleeper;
-import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
-import junit.framework.Assert;
+import io.appium.java_client.android.AndroidDriver;
 
 public class AccountsSection extends MainSettings{
 	String nameofAccount1 = GenerateRandomString(5);
@@ -74,4 +68,5 @@ public class AccountsSection extends MainSettings{
 		}
 
 	}
+	
 }

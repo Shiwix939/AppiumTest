@@ -37,7 +37,5 @@
 	<classpathentry kind="lib" path="lib/xalan-2.7.2.jar"/>
 	<classpathentry kind="lib" path="lib/xercesImpl-2.11.0.jar"/>
 	<classpathentry kind="lib" path="lib/xml-apis-1.4.01.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/XSLT Report/XSLT Report/XSLT Report/lib/saxon-8.7.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/XSLT Report/XSLT Report/XSLT Report/lib/SaxonLiaison.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
